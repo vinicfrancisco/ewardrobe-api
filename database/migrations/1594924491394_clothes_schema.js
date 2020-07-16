@@ -3,10 +3,12 @@
 /** @type {import('@adonisjs/lucid/src/Schema')} */
 const Schema = use('Schema');
 
-class TokensSchema extends Schema {
+class ClothesSchema extends Schema {
   up() {
-    this.create('tokens', table => {
+    this.create('clothes', table => {
       table.uuid('id').primary();
+      table.string('name', 80);
+      table.string('clothes_url');
       table
         .uuid('user_id')
         .references('id')
@@ -18,8 +20,8 @@ class TokensSchema extends Schema {
   }
 
   down() {
-    this.drop('tokens');
+    this.drop('clothes');
   }
 }
 
-module.exports = TokensSchema;
+module.exports = ClothesSchema;
