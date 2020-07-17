@@ -16,7 +16,7 @@ class AddCategoryToClothesSchema extends Schema {
   }
 
   down() {
-    this.table('users', table => {
+    this.table('clothes', table => {
       table.dropColumn('category_id');
     });
   }
