@@ -1,28 +1,37 @@
-# Adonis API application
+# eWardrobe API
 
-This is the boilerplate for creating an API server in AdonisJs, it comes pre-configured with.
-
-1. Bodyparser
-2. Authentication
-3. CORS
-4. Lucid ORM
-5. Migrations and seeds
+This is an AdonisJS API for digital wardrobe application
 
 ## Setup
 
-Use the adonis command to install the blueprint
+After cloning this repo, run one of the followings commands
 
-```bash
-adonis new yardstick --api-only
+
+```
+npm install
 ```
 
-or manually clone the repo and then run `npm install`.
+```
+yarn 
+```
 
 
 ### Migrations
 
+To run the migrations, you need to create 2 databases with the following names: **ewardrobe** and **ewardrobe-test**
+
 Run the following command to run startup migrations.
 
-```js
+```
 adonis migration:run
 ```
+
+### Environment Variables
+
+To configure .env variables, you need to create **.env** file on the root of the project, copy **.env.example** and configure your database and SMTP settings.
+
+### Run
+
+To run the API, run the following command
+
+``` adonis serve --dev ```
