@@ -3,17 +3,17 @@
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Model = use('Model');
 
-class Token extends Model {
+class Category extends Model {
   static boot() {
     super.boot();
   }
 
   /**
-   * A token belongs to a user
+   * A category has many clothes
    */
-  user() {
-    return this.belongsTo('App/Models/User');
+  clothes() {
+    return this.hasMany('App/Models/Clothes');
   }
 }
 
-module.exports = Token;
+module.exports = Category;
