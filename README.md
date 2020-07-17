@@ -34,4 +34,6 @@ To configure .env variables, you need to create **.env** file on the root of the
 
 To run the API, run the following command
 
-``` adonis serve --dev ```
+``` 
+adonis serve --dev
+```
