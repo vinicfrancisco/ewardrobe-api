@@ -15,4 +15,9 @@ Route.group(() => {
    * AuthController routes.
    */
   Route.post('auth', 'AuthController.store').validator('SignIn');
+
+  /**
+   * UserController routes.
+   */
+  Route.post('users', 'UserController.store').validator('CreateUser');
 });
