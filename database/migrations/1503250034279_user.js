@@ -11,7 +11,7 @@ class UserSchema extends Schema {
       table.string('nickname', 80).notNullable();
       table.string('email', 254).notNullable().unique();
       table.string('password', 60).notNullable();
-      table.enu('sex', ['male', 'female']);
+      table.enu('genre', ['male', 'female']);
       table.timestamps();
     });
   }
