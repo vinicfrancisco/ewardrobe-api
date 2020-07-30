@@ -32,7 +32,7 @@ class AuthController {
 
     const { token } = await auth.attempt(email, password);
 
-    return { token, user };
+    return response.send({ token, user });
   }
 }
 
