@@ -14,10 +14,10 @@ Route.group(() => {
   /**
    * AuthController routes.
    */
-  Route.post('auth', 'AuthController.store').validator('SignIn');
+  Route.post('auth', 'AuthController.store');
 
   /**
    * UserController routes.
    */
-  Route.post('users', 'UserController.store').validator('CreateUser');
+  Route.post('users', 'UserController.store');
 });

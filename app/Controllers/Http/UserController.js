@@ -43,7 +43,7 @@ class UserController {
       ...data
     });
 
-    const { token } = await auth.attempt(user.email, user.password);
+    const { token } = await auth.attempt(user.email, data.password);
 
     return response.send({ token, user });
   }
