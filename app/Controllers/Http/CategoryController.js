@@ -19,7 +19,7 @@ class CategoryController {
    * @param {Response} ctx.response
    */
   async store({ request, response }) {
-    const data = request.body;
+    const data = request.only(['name', 'type']);
 
     const findCategory = await Category.findBy('name', data.name);
 
