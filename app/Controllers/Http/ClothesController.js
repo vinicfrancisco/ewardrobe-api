@@ -16,12 +16,12 @@ const AppError = use('App/Exceptions/AppError');
 
 class ClothesController {
   /**
-   * Store  a new category.
+   * Store  new clothes.
    * @param {object} ctx
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async store({ request, response }) {
+  async store({ request, response, auth }) {
     const body = {};
 
     const validationOptions = {
@@ -59,6 +59,7 @@ class ClothesController {
     const clothes = await Clothes.create({
       id: uuid(),
       clothes_url: imageUrl,
+      user_id: auth.user.id,
       ...body
     });
 
@@ -70,8 +71,10 @@ class ClothesController {
    * @param {object} ctx
    * @param {Response} ctx.response
    */
-  async index({ response }) {
-    const clothes = await Clothes.all();
+  async index({ response, auth }) {
+    const clothes = await Clothes.query()
+      .where('user_id', auth.user.id)
+      .fetch();
 
     return response.send(clothes);
   }

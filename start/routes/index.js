@@ -3,6 +3,8 @@
 /** @type {import('@adonisjs/framework/src/Route/Manager'} */
 const Route = use('Route');
 
+require('./private');
+
 Route.group(() => {
   /**
    * HealthCheck
@@ -26,10 +28,4 @@ Route.group(() => {
    */
   Route.post('categories', 'CategoryController.store');
   Route.get('categories', 'CategoryController.index');
-
-  /**
-   * ClothesController routes.
-   */
-  Route.get('clothes', 'ClothesController.index');
-  Route.post('clothes', 'ClothesController.store');
 });

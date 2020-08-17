@@ -14,7 +14,7 @@ class LooksClothesSchema extends Schema {
         .onUpdate('CASCADE')
         .onDelete('SET NULL');
       table
-        .uuid('clothes_id')
+        .uuid('clothe_id')
         .references('id')
         .inTable('clothes')
         .onUpdate('CASCADE')
