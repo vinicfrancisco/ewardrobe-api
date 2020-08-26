@@ -9,13 +9,6 @@ class Clothe extends Model {
   }
 
   /**
-   * Clothes belongs to many looks (Many to Many pivot table)
-   */
-  looks() {
-    return this.belongsToMany('App/Models/Look').pivotTable('looks_clothes');
-  }
-
-  /**
    * Clothes belongs to a category
    */
   categories() {

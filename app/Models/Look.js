@@ -16,10 +16,17 @@ class Look extends Model {
   }
 
   /**
-   * A look belongs to many Clothes (Many to Many pivot table)
+   * A look has a top clothes
    */
-  clothes() {
-    return this.belongsToMany('App/Models/Clothes').pivotTable('looks_clothes');
+  top() {
+    return this.hasOne('App/Models/Clothes', 'id', 'top_clothes_id');
+  }
+
+  /**
+   * A look has a top clothes
+   */
+  bottom() {
+    return this.hasOne('App/Models/Clothes', 'id', 'bottom_clothes_id');
   }
 }
 
