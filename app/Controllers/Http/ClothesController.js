@@ -59,7 +59,7 @@ class ClothesController {
     const clothes = await Clothes.create({
       id: uuid(),
       clothes_url: imageUrl,
-      user_id: auth.user.id,
+      // user_id: auth.user.id,
       ...body
     });
 
@@ -73,7 +73,7 @@ class ClothesController {
    */
   async index({ response, auth }) {
     const clothes = await Clothes.query()
-      .where('user_id', auth.user.id)
+      // .where('user_id', auth.user.id)
       .fetch();
 
     return response.send(clothes);
