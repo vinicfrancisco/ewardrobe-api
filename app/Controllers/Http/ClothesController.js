@@ -78,6 +78,24 @@ class ClothesController {
 
     return response.send(clothes);
   }
+
+  async destroy({ response, params }) {
+    const { id } = params;
+
+    const clothes = await Clothes.find(id);
+
+    if (!clothes) {
+      throw new AppError(
+        `Clothes with id: ${id} does not exists`,
+        404,
+        'ClothesNotFound'
+      );
+    }
+
+    await clothes.delete();
+
+    return response.status(204).send();
+  }
 }
 
 module.exports = ClothesController;

@@ -5,6 +5,8 @@ const { uuid } = use('uuidv4');
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Look = use('App/Models/Look');
 
+const AppError = use('App/Exceptions/AppError');
+
 /** @typedef {import('@adonisjs/framework/src/Request')} Request */
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/auth/src/Schemes/Session')} AuthSession */
@@ -47,6 +49,24 @@ class LooksController {
       .fetch();
 
     return response.send(looks);
+  }
+
+  async destroy({ response, params }) {
+    const { id } = params;
+
+    const look = await Look.find(id);
+
+    if (!look) {
+      throw new AppError(
+        `Look with id: ${id} does not exists`,
+        404,
+        'LookNotFound'
+      );
+    }
+
+    await look.delete();
+
+    return response.status(204).send();
   }
 }
 
