@@ -3,29 +3,30 @@
 /** @type {import('@adonisjs/lucid/src/Schema')} */
 const Schema = use('Schema');
 
-class LooksClothesSchema extends Schema {
+class AddClothesToLooksSchema extends Schema {
   up() {
-    this.create('looks_clothes', table => {
-      table.uuid('id').primary();
+    this.table('looks', table => {
       table
-        .uuid('look_id')
-        .references('id')
-        .inTable('looks')
-        .onUpdate('CASCADE')
-        .onDelete('SET NULL');
-      table
-        .uuid('clothe_id')
+        .uuid('top_clothes_id')
         .references('id')
         .inTable('clothes')
         .onUpdate('CASCADE')
         .onDelete('SET NULL');
-      table.timestamps();
+      table
+        .uuid('bottom_clothes_id')
+        .references('id')
+        .inTable('clothes')
+        .onUpdate('CASCADE')
+        .onDelete('SET NULL');
     });
   }
 
   down() {
-    this.drop('looks_clothes');
+    this.table('looks', table => {
+      table.dropColumn('top_clothes_id');
+      table.dropColumn('bottom_clothes_id');
+    });
   }
 }
 
-module.exports = LooksClothesSchema;
+module.exports = AddClothesToLooksSchema;
