@@ -17,4 +17,4 @@ Route.group(() => {
   Route.get('looks', 'LooksController.index');
   Route.post('looks', 'LooksController.store');
   Route.delete('looks/:id', 'LooksController.destroy');
-}).middleware('auth');
+});
