@@ -9,12 +9,12 @@ Route.group(() => {
    */
   Route.get('clothes', 'ClothesController.index');
   Route.post('clothes', 'ClothesController.store');
-  Route.delete('clothes', 'ClothesController.destroy');
+  Route.delete('clothes/:id', 'ClothesController.destroy');
 
   /**
    * LooksController routes.
    */
   Route.get('looks', 'LooksController.index');
   Route.post('looks', 'LooksController.store');
-  Route.delete('looks', 'LooksController.destroy');
+  Route.delete('looks/:id', 'LooksController.destroy');
 }).middleware('auth');
