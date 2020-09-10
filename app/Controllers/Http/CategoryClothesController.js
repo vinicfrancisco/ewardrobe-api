@@ -15,20 +15,18 @@ class CategoryClothesController {
 
     const clothes = [...clothesWithCategories];
 
-    // const bottomClothes = clothesWithCategories.find(
-    //   clothes => clothes.category.type === 'bottom'
-    // );
+    const bottomClothes = clothes.filter(
+      clothes => clothes.category.type === 'bottom'
+    );
 
-    // const topClothes = clothesWithCategories.find(
-    //   clothes => clothes.category.type === 'top'
-    // );
+    const topClothes = clothes.filter(
+      clothes => clothes.category.type === 'top'
+    );
 
-    // return response.send({
-    //   top: topClothes,
-    //   bottom: bottomClothes
-    // });
-
-    return response.send(clothes);
+    return response.send({
+      top: topClothes,
+      bottom: bottomClothes
+    });
   }
 }
 
