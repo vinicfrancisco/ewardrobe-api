@@ -11,7 +11,7 @@ class Clothe extends Model {
   /**
    * Clothes belongs to a category
    */
-  categories() {
+  category() {
     return this.belongsTo('App/Models/Category');
   }
 }

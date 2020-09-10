@@ -12,6 +12,11 @@ Route.group(() => {
   Route.delete('clothes/:id', 'ClothesController.destroy');
 
   /**
+   * CategoryClothesController routes
+   */
+  Route.get('/clothes/types', 'CategoryClothesController.index');
+
+  /**
    * LooksController routes.
    */
   Route.get('looks', 'LooksController.index');
