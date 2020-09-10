@@ -19,14 +19,14 @@ class Look extends Model {
    * A look has a top clothes
    */
   top() {
-    return this.hasOne('App/Models/Clothes', 'id', 'top_clothes_id');
+    return this.hasOne('App/Models/Clothes', 'top_clothes_id', 'id');
   }
 
   /**
    * A look has a top clothes
    */
   bottom() {
-    return this.hasOne('App/Models/Clothes', 'id', 'bottom_clothes_id');
+    return this.hasOne('App/Models/Clothes', 'bottom_clothes_id', 'id');
   }
 }
 
