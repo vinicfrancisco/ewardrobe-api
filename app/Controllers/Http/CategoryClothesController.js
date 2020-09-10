@@ -13,6 +13,8 @@ class CategoryClothesController {
       .with('category')
       .fetch();
 
+    const clothes = [...clothesWithCategories];
+
     // const bottomClothes = clothesWithCategories.find(
     //   clothes => clothes.category.type === 'bottom'
     // );
@@ -26,7 +28,7 @@ class CategoryClothesController {
     //   bottom: bottomClothes
     // });
 
-    return response.send(clothesWithCategories);
+    return response.send(clothes);
   }
 }
 
