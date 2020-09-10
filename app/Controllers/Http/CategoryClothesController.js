@@ -28,4 +28,4 @@ class CategoryClothesController {
   }
 }
 
-export default CategoryClothesController;
+module.exports = CategoryClothesController;
