@@ -11,7 +11,6 @@ class CategoryClothesController {
   async index({ request, response }) {
     const clothesWithCategories = await Clothes.query()
       .with('category')
-      .groupBy('category.type')
       .fetch();
 
     // const bottomClothes = clothesWithCategories.find(
