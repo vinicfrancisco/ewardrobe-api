@@ -9,19 +9,21 @@ const Clothes = use('App/Models/Clothes');
 
 class CategoryClothesController {
   async index({ request, response }) {
-    const clothesWithCategories = await Clothes.query()
-      .with('category')
+    const topClothes = await Clothes.query()
+      .with('category', builder =>
+        builder.where({
+          type: 'top'
+        })
+      )
       .fetch();
 
-    const clothes = [...clothesWithCategories];
-
-    const bottomClothes = clothes.filter(
-      clothes => clothes.category.type === 'bottom'
-    );
-
-    const topClothes = clothes.filter(
-      clothes => clothes.category.type === 'top'
-    );
+    const bottomClothes = await Clothes.query()
+      .with('category', builder =>
+        builder.where({
+          type: 'bottom'
+        })
+      )
+      .fetch();
 
     return response.send({
       top: topClothes,
