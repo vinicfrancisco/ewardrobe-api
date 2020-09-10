@@ -11,20 +11,23 @@ class CategoryClothesController {
   async index({ request, response }) {
     const clothesWithCategories = await Clothes.query()
       .with('category')
+      .groupBy('category.type')
       .fetch();
 
-    const bottomClothes = clothesWithCategories.find(
-      clothes => clothes.category.type === 'bottom'
-    );
+    // const bottomClothes = clothesWithCategories.find(
+    //   clothes => clothes.category.type === 'bottom'
+    // );
 
-    const topClothes = clothesWithCategories.find(
-      clothes => clothes.category.type === 'top'
-    );
+    // const topClothes = clothesWithCategories.find(
+    //   clothes => clothes.category.type === 'top'
+    // );
 
-    return response.send({
-      top: topClothes,
-      bottom: bottomClothes
-    });
+    // return response.send({
+    //   top: topClothes,
+    //   bottom: bottomClothes
+    // });
+
+    return response.send(clothesWithCategories);
   }
 }
 
